@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>LOADING PRO X PS5</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #030303;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #background {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      object-position: center center;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    #shade {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.18) 0%,
+        rgba(0, 0, 0, 0.10) 48%,
+        rgba(0, 0, 0, 0.04) 72%,
+        rgba(0, 0, 0, 0.12) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    #brandbar {
+      position: fixed;
+      left: 3.5vw;
+      top: 34vh;
+      width: 59vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2px 10px 2px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+      color: #f5f5f5;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      z-index: 3;
+    }
+
+    #brandbar .title {
+      font-size: clamp(16px, 1.45vw, 28px);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    #brandbar .sub {
+      font-size: clamp(9px, 0.72vw, 14px);
+      color: rgba(255,255,255,0.62);
+      white-space: nowrap;
+    }
+
+    #console {
+      position: fixed;
+      left: 3.5vw;
+      top: calc(34vh + 48px);
+      width: 59vw;
+      height: 46vh;
+      padding: 20px 22px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: rgba(0, 0, 0, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 10px;
+      box-shadow: 0 18px 55px rgba(0,0,0,0.48);
+      color: #f6f6f6;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: clamp(13px, 1.0vw, 19px);
+      line-height: 1.62;
+      text-shadow: 0 1px 2px #000;
+      z-index: 3;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,.28) rgba(0,0,0,.2);
+    }
+
+    #console:empty::before {
+      content: "Initializing host...";
+      color: rgba(255,255,255,0.58);
+    }
+
+    #credit {
+      position: fixed;
+      left: 3.5vw;
+      bottom: 2.3vh;
+      color: rgba(255,255,255,0.38);
+      font-size: clamp(8px, 0.62vw, 12px);
+      letter-spacing: .08em;
+      z-index: 3;
+    }
+
+    @media (max-aspect-ratio: 4/3) {
+      #brandbar, #console {
+        left: 4vw;
+        width: 72vw;
+      }
+      #brandbar { top: 31vh; }
+      #console { top: calc(31vh + 46px); height: 50vh; }
+    }
+  </style>
+</head>
+<body>
+  <img id="background" src="./assets/loading-pro-bg.jpg" alt="">
+  <div id="shade"></div>
+
+  <div id="brandbar">
+    <span class="title">LOADING PRO X PS5</span>
+    <span class="sub">RELAPSE HOST</span>
+  </div>
+
+  <div id="console"></div>
+  <div id="credit">UI customized for Loading Pro · Original Relapse project credits preserved</div>
+
+  <script src="./src/firmware.js"></script>
+  <script src="./src/main.js"></script>
+  <script src="./src/rop.js"></script>
+  <script src="./src/utils/syscalls.js"></script>
+  <script type="module" src="./src/site.js"></script>
+</body>
+</html>
